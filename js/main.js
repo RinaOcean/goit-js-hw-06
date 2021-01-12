@@ -4,11 +4,12 @@ import users from "./users.js";
 // Получить массив имен всех пользователей (поле name).
 
 const getUserNames = (users) =>
-  users.reduce((allNames, user) => {
-    allNames.push(user.name);
+  // users.reduce((allNames, user) => {
+  //   allNames.push(user.name);
 
-    return allNames;
-  }, []);
+  //   return allNames;
+  // }, []);
+  users.map((user) => user.name);
 
 console.log(getUserNames(users));
 // [ 'Moore Hensley', 'Sharlene Bush', 'Ross Vazquez', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony' ]
@@ -98,21 +99,29 @@ const getNamesSortedByFriendsCount = (users) =>
     }, []);
 
 console.log(getNamesSortedByFriendsCount(users));
-// [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
+[
+  "Moore Hensley",
+  "Sharlene Bush",
+  "Elma Head",
+  "Carey Barr",
+  "Blackburn Dotson",
+  "Sheree Anthony",
+  "Ross Vazquez",
+];
 
 // --------------------------------Задание 10--------------------------------
 // Получить массив всех умений всех пользователей (поле skills), при этом не должно быть повторяющихся умений
 // и они должны быть отсортированы в алфавитном порядке.
 
-const getSortedUniqueSkills = (users) =>
-  users
+const getSortedUniqueSkills = (users) => {
+  return users
     .reduce((allSkills, user) => {
       allSkills.push(...user.skills);
-
       return allSkills;
     }, [])
     .filter((skill, indx, allSkills) => allSkills.indexOf(skill) === indx)
     .sort();
+};
 
 console.log(getSortedUniqueSkills(users));
 // [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]
